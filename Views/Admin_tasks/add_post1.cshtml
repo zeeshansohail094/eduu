@@ -1,0 +1,125 @@
+﻿@{
+    ViewBag.Title = "add_post1";
+}
+
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Admin</title>
+
+    <!-- Vendor CSS -->
+    <link href="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="../../admin_content/css/app_1.min.css" rel="stylesheet">
+    <link href="../../admin_content/css/app_2.min.css" rel="stylesheet">
+    <link href="~/AdminCss/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Muhammad Din Nuersery Farm" />
+    <!--Google Fonts-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<script type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+</script>
+
+
+<body onload="noBack();"
+      onpageshow="if (event.persisted) noBack();" onunload="">
+    @Html.Partial("_admin_header")
+    @Html.Partial("_admin_aside")
+
+
+    <section id="main">
+        <div class="login-form">
+            <div class="top-login">
+                <span><img src="../AdminImg/group.png" alt="" /></span>
+
+            </div>
+            <h1>Select a Photo and Write Content</h1>
+            <h1>@TempData["message"]</h1>
+            <div class="login-top">
+                @using (Html.BeginForm("setPhoto", "Admin_tasks", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="hidden" name="type" value="@ViewBag.message">
+                    <div class="login-ic">
+                        <i></i>
+                        <input type="file" name="file" id="file1" onmouseout="setPhoto();">
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="login-ic">
+                        <i></i>
+                        <input type="text" name="name" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Plant Name';}" />
+                        <div class="clear"> </div>
+                    </div>
+                    <div class="login-ic">
+                        <i></i>
+                        <input type="text" name="details" value="Details" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Details';}" />
+                        <div class="clear"> </div>
+                    </div>
+
+                    <div class="log-bwn">
+                        <input type="submit" value="Submit">
+                    </div>
+                }
+            </div>
+            <p class="copy">© 2016 Educated Livings All rights reserved | Design by  <a href="http://Developers.educatedlivings.com/" target="_blank">Zeeshan Sohail</a></p>
+        </div>
+    </section>
+
+    @Html.Partial("_admin_footer")
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!-- Javascript Libraries -->
+    <script src="../../admin_content/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    @*<script src="vendors/bower_components/flot/jquery.flot.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.js"></script>
+    @*<script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="../../admin_content/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../admin_content/vendors/sparklines/jquery.sparkline.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+    <script src="../../admin_content/vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="../../admin_content/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+    <script src="../../admin_content/js/app.min.js"></script>
+</body>
+
+
+    </html>
+

@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+   
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Material Admin</title>
+    
+        <!-- Vendor CSS -->
+    <link href="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="../../admin_content/css/app_1.min.css" rel="stylesheet">
+    <link href="../../admin_content/css/app_2.min.css" rel="stylesheet">
+    </head>
+    <script type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+</script>
+
+
+<body onload="noBack();"
+      onpageshow="if (event.persisted) noBack();" onunload="">
+    @Html.Partial("_admin_header")
+
+    <section id="main">
+        @Html.Partial("_admin_aside")
+
+
+        @foreach (var v in Model)
+        {
+            var u = Session["user"];
+
+            var a = v.User;
+
+            if (u.Equals(a))
+            {
+                <section id="content">
+                    <div class="container container-alt">
+
+                        <div class="block-header">
+                            <h2>
+                                @v.fullname
+                            <small>Web/UI Developer, Lahore, Pakistan</small>
+                        </h2>
+
+                        <ul class="actions m-t-20 hidden-xs">
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown">
+                                    <i class="zmdi zmdi-more-vert"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="#">Privacy Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Account Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Other Settings</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card" id="profile-main">
+                        <div class="pm-overview c-overflow">
+
+                            <div class="pmo-pic">
+                                <div class="p-relative">
+                                    <a href="#">
+                                        <img class="img-responsive" src="~/images/profile/@v.path" alt="">
+                                    </a>
+
+                                    <div class="dropdown pmop-message">
+                                        <a data-toggle="dropdown" href="#" class="btn bgm-white btn-float z-depth-1">
+                                            <i class="zmdi zmdi-comment-text-alt"></i>
+                                        </a>
+
+                                        <div class="dropdown-menu">
+                                            <textarea placeholder="Write something..."></textarea>
+
+                                            <button class="btn bgm-green btn-float">
+                                                <i class="zmdi zmdi-mail-send"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="pmop-edit">
+                                        <i class="zmdi zmdi-camera"></i> <span class="hidden-xs">Update Profile Picture</span>
+                                    </a>
+                                </div>
+
+
+                                @*<div class="pmo-stat">
+                                        <h2 class="m-0 c-white">1562</h2>
+                                        Total Connections
+                                    </div>*@
+                            </div>
+
+                            <div class="pmo-block pmo-contact hidden-xs">
+                                <h2>Contact</h2>
+
+                                <ul>
+                                    <li><i class="zmdi zmdi-phone"></i> @v.mob</li>
+                                    <li><i class="zmdi zmdi-email"></i> @v.email</li>
+                                    <li><i class="zmdi zmdi-facebook-box"></i> https://www.facebook.com/zeeshan.sohail.925</li>
+
+                                </ul>
+                            </div>
+
+                            <div class="pmo-block pmo-items hidden-xs">
+                                @*<h2>Connections</h2>
+
+                                    <div class="pmob-body">
+                                        <div class="row">
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/1.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/2.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/3.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/4.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/5.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/6.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/7.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/8.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/1.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/2.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/3.jpg" alt="">
+                                            </a>
+                                            <a href="#" class="col-xs-2">
+                                                <img class="img-circle" src="~/img/profile-pics/4.jpg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>*@
+                            </div>
+                        </div>
+
+                        <div class="pm-body clearfix">
+                            <ul class="tab-nav tn-justified">
+                                <li class="active"><a href="#">About</a></li>
+                                @*<li><a href="profile-timeline.html">Timeline</a></li>
+                                <li><a href="profile-photos.html">Photos</a></li>
+                                <li><a href="profile-connections.html">Connections</a></li>*@
+                            </ul>
+
+
+                            <div class="pmb-block">
+                                <div class="pmbb-header">
+                                    <h2><i class="zmdi zmdi-equalizer m-r-10"></i> Summary</h2>
+
+                                    <ul class="actions">
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a data-ma-action="profile-edit" href="#">Edit</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pmbb-body p-l-30">
+                                    <div class="pmbb-view">
+                                        @v.summary
+                                    </div>
+                                    @*@using (Html.BeginForm("save_sum", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                    {*@
+                                    <form action="~/Admin/save_sum1/@v.Id" method="post">
+                                    <div class="pmbb-edit">
+                                        <div class="fg-line">
+                                            <textarea name="txt_sum" class="form-control" rows="5" placeholder="Summary..."></textarea>
+                                        </div>
+                                        <div class="m-t-10">
+                                            <button class="btn btn-primary btn-sm" value="Save">Save</button>
+                                            <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
+                                        </div>
+                                    </div>
+                                        </form>
+                                    @* } *@
+                                   
+                                </div>
+                            </div>
+
+                            <div class="pmb-block">
+                                <div class="pmbb-header">
+                                    <h2><i class="zmdi zmdi-account m-r-10"></i> Basic Information</h2>
+
+                                    <ul class="actions">
+                                        <li class="dropdown">
+                                            <a href="#" data-toggle="dropdown">
+                                                <i class="zmdi zmdi-more-vert"></i>
+                                            </a>
+
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li>
+                                                    <a data-ma-action="profile-edit" href="#">Edit</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pmbb-body p-l-30">
+                                    <div class="pmbb-view">
+                                        <dl class="dl-horizontal">
+                                            <dt>Full Name</dt>
+                                            <dd>@v.fullname</dd>
+                                        </dl>
+                                        
+                                        <dl class="dl-horizontal">
+                                            <dt>Username</dt>
+                                            <dd>@v.User</dd>
+                                        </dl>
+
+                                        <dl class="dl-horizontal">
+                                            <dt>Password</dt>
+                                            <dd>@v.Password</dd>
+                                        </dl>
+
+                                        @*<dl class="dl-horizontal">
+                                                <dt>v.</dt>
+                                                <dd>March 10, 1995</dd>
+                                            </dl>*@
+                                        @*<dl class="dl-horizontal">
+                                                <dt>Martial Status</dt>
+                                                <dd>Single</dd>
+                                            </dl>*@
+                                    </div>
+                                    <form action="~/Admin/save_basic1/@v.Id" method="post">
+                                        <div class="pmbb-edit">
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-t-10">Full Name</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input name="txt_name" type="text" class="form-control"
+                                                               placeholder="eg. Zeeshan Sohail">
+                                                    </div>
+
+                                                    <div class="fg-line">
+                                                        <input required name="txt_u_name" type="text" class="form-control"
+                                                               placeholder="eg. zeeshan">
+                                                    </div>
+
+                                                    <div class="fg-line">
+                                                        <input required name="txt_pass" type="text" class="form-control"
+                                                               placeholder="eg. your password">
+                                                    </div>
+
+                                                </dd>
+                                            </dl>
+
+
+                                            <div class="m-t-30">
+                                                <button class="btn btn-primary btn-sm">Save</button>
+                                                <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                            <form action="~/Admin/save_con1/@v.Id" method="post">
+                                <div class="pmb-block">
+                                    <div class="pmbb-header">
+                                        <h2><i class="zmdi zmdi-phone m-r-10"></i> Contact Information</h2>
+
+                                        <ul class="actions">
+                                            <li class="dropdown">
+                                                <a href="#" data-toggle="dropdown">
+                                                    <i class="zmdi zmdi-more-vert"></i>
+                                                </a>
+
+                                                <ul class="dropdown-menu dropdown-menu-right">
+                                                    <li>
+                                                        <a data-ma-action="profile-edit" href="#">Edit</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="pmbb-body p-l-30">
+                                        <div class="pmbb-view">
+                                            <dl class="dl-horizontal">
+                                                <dt>Mobile Phone</dt>
+                                                <dd>@v.mob</dd>
+                                            </dl>
+                                            <dl class="dl-horizontal">
+                                                <dt>Email Address</dt>
+                                                <dd>@v.email</dd>
+                                            </dl>
+
+                                            <dl class="dl-horizontal">
+                                                <dt>Skype</dt>
+                                                <dd>@v.skype</dd>
+                                            </dl>
+                                        </div>
+
+                                        <div class="pmbb-edit">
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-t-10">Mobile Phone</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input required name="txt_mob" type="text" class="form-control"
+                                                               placeholder="eg. 0303 685 7912">
+                                                    </div>
+                                                </dd>
+                                            </dl>
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-t-10">Email Address</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input required name="txt_email" type="email" class="form-control"
+                                                               placeholder="eg. zeeshansohail0094Gmail.com">
+                                                    </div>
+                                                </dd>
+                                            </dl>
+
+                                            <dl class="dl-horizontal">
+                                                <dt class="p-t-10">Skype</dt>
+                                                <dd>
+                                                    <div class="fg-line">
+                                                        <input required name="txt_skype" type="text" class="form-control"
+                                                               placeholder="eg. zeeGmail.com">
+                                                    </div>
+                                                </dd>
+                                            </dl>
+
+                                            <div class="m-t-30">
+                                                <button class="btn btn-primary btn-sm">Save</button>
+                                                <button data-ma-action="profile-edit-cancel" class="btn btn-link btn-sm">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            }
+        }
+    </section>
+
+    @Html.Partial("_admin_footer")
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+        <div class="ie-warning">
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="img/browsers/chrome.png" alt="">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="img/browsers/firefox.png" alt="">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="img/browsers/opera.png" alt="">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="img/browsers/safari.png" alt="">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="img/browsers/ie.png" alt="">
+                            <div>IE (New)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Javascript Libraries -->
+    <script src="../../admin_content/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    @*<script src="vendors/bower_components/flot/jquery.flot.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.js"></script>
+    @*<script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="../../admin_content/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../admin_content/vendors/sparklines/jquery.sparkline.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+    <script src="../../admin_content/vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="../../admin_content/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+    <script src="../../admin_content/js/app.min.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "_last_script";
+}
+
+<script>
+    new QuickDegreeFinder().populate('.degree select', '.category select', '.subject select').setDefaults('', '', '').onReady(function () {
+        jQuery('select').selectBoxIt();
+        selectBox_1 = jQuery('.degree select').data('selectBox-selectBoxIt');
+        selectBox_2 = jQuery('.category select').data('selectBox-selectBoxIt');
+        selectBox_3 = jQuery('.subject select').data('selectBox-selectBoxIt');
+    });
+</script><link rel='stylesheet' id='js_composer_front-css' href='wp-content/plugins/js_composer/assets/css/js_composer125b.css?ver=4.7.4' type='text/css' media='all' />
+<script type='text/javascript' src='wp-content/themes/Akal/js/brad-love5152.js?ver=1.0'></script>
+<script type='text/javascript' src='wp-includes/js/wp-embed.min8686.js?ver=4.5.1'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/js/js_composer_front125b.js?ver=4.7.4'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/modernizr.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/fitvids.min.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/prettyPhoto.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/plugins.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/skrollr.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/imagesloaded.js'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/jquery.scrollTo.min.js'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/waypoints/waypoints.min125b.js?ver=4.7.4'></script>
+<script type='text/javascript' src='wp-content/plugins/js_composer/assets/lib/bower/isotope/dist/isotope.pkgd.min125b.js?ver=4.7.4'></script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/bxslider.min.js'></script>
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    var main = { "url": "http:\/\/www.bestcollegereviews.org\/wp-content\/themes\/Akal", "nomoreposts": "No more Posts to Load", "nomoreprojects": "No more Projects to Load", "ajaxurl": "http:\/\/www.bestcollegereviews.org\/wp-admin\/admin-ajax.php", "contactNonce": "67e0ab234e", "fixedNav": "", "secondNav": "0", "shrinkNavHeight": "65" };
+    /* ]]> */
+</script>
+<script type='text/javascript' src='wp-content/themes/Akal/js/main.min.js'></script>
+
+<script type="text/javascript">
+    (function ($) {
+        'use strict';
+        jQuery(document).ready(function ($) {
+
+
+            var retina = window.devicePixelRatio > 1 ? true : false;
+
+            /* ------------------------------------------------------------------------ */
+            /* Add PrettyPhoto */
+            /* ------------------------------------------------------------------------ */
+
+            var lightboxArgs = {
+                animation_speed: 'fast',
+                overlay_gallery: true,
+                autoplay_slideshow: false,
+                slideshow: 5000, /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                theme: 'pp_default',
+                opacity: 0.8,
+                show_title: true,
+                deeplinking: false,
+                allow_resize: true, 			/* Resize the photos bigger than viewport. true/false */
+                counter_separator_label: '/', 	/* The separator for the gallery counter 1 "of" 2 */
+                default_width: 1200,
+                default_height: 640
+            };
+
+            jQuery("a[rel^='prettyPhoto']").prettyPhoto(lightboxArgs);
+
+
+        });
+    }(jQuery))
+</script>
+

@@ -1,0 +1,1 @@
+jQuery(window).load(function(e){jQuery('.qdf-container').parents('section.section').addClass('qdf_parent');});

@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "add_post";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <!-- Custom Theme files -->
+    <link href="~/AdminCss/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Muhammad Din Nuersery Farm" />
+    <!--Google Fonts-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Fonts-->
+</head>
+<body>
+    <!--header start here-->
+    <div class="login-form">
+        <div class="top-login">
+            <span><img src="../AdminImg/group.png" alt="" /></span>
+
+        </div>
+        <h1>Select a Photo and Write Content</h1>
+        <h1>@TempData["message"]</h1>
+        <div class="login-top">
+            @using (Html.BeginForm("setPhoto", "Admin_tasks", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input type="hidden" name="type" value="@ViewBag.message">
+                <div class="login-ic">
+                    <i></i>
+                    <input type="file" name="file" id="file1" onmouseout="setPhoto();">
+                    <div class="clear"> </div>
+                </div>
+                <div class="login-ic">
+                    <i></i>
+                    <input type="text" name="name" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Plant Name';}" />
+                    <div class="clear"> </div>
+                </div>
+                <div class="login-ic">
+                    <i></i>
+                    <input type="text" name="details" value="Details" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Details';}" />
+                    <div class="clear"> </div>
+                </div>
+
+                <div class="log-bwn">
+                    <input type="submit" value="Submit">
+                </div>
+            }
+        </div>
+        <p class="copy">© 2016 Educated Livings All rights reserved | Design by  <a href="http://Developers.educatedlivings.com/" target="_blank">Zeeshan Sohail</a></p>
+    </div>
+    
+</body>
+</html>

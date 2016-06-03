@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+   
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Material Admin</title>
+    
+        <!-- Vendor CSS -->
+    <link href="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="../../admin_content/css/app_1.min.css" rel="stylesheet">
+    <link href="../../admin_content/css/app_2.min.css" rel="stylesheet">
+    </head>
+    
+    <script type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+</script>
+
+
+<body onload="noBack();"
+      onpageshow="if (event.persisted) noBack();" onunload="">
+    @Html.Partial("_admin_header")
+
+    <section id="main">
+        @Html.Partial("_admin_aside")
+
+        <section id="content">
+
+            <div class="container container-alt">
+                <div class="block-header">
+                    <h2>
+                        Photo Gallery
+
+                    </h2>
+
+                    <ul class="actions">
+                        <li>
+                            <a href="#">
+                                <i class="zmdi zmdi-trending-up"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="zmdi zmdi-check-all"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" data-toggle="dropdown">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li>
+                                    <a href="#">Refresh</a>
+                                </li>
+                                <li>
+                                    <a href="#">Manage Widgets</a>
+                                </li>
+                                <li>
+                                    <a href="#">Widgets Settings</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+
+                <div class="card">
+                    <div class="action-header clearfix">
+                        <div class="ah-label hidden-xs">Photos</div>
+
+                        <div class="ah-search">
+                            <input type="text" placeholder="Start typing..." class="ahs-input">
+
+                            <i class="ahs-close" data-ma-action="action-header-close">&times;</i>
+                        </div>
+
+                        <ul class="actions">
+                            <li>
+                                <a href="#" data-ma-action="action-header-open">
+                                    <i class="zmdi zmdi-search"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <i class="zmdi zmdi-time"></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="zmdi zmdi-sort"></i>
+                                </a>
+
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li>
+                                        <a href="#">Last Modified</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Last Edited</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Name</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Date</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="zmdi zmdi-info"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="card-body card-padding">
+                        <div class="p-timeline">
+                            <div class="pt-line c-gray text-right">
+                                <span class="d-block">2016</span>
+                                05/05
+                            </div>
+                            @foreach (var v in Model)
+                            {
+                                var u = Session["user"];
+
+                                var a = v.User;
+
+                                if (u.Equals(a))
+                                {
+                                    <div class="pt-body">
+                                        <h2 class="ptb-title">@v.User's Collection</h2>
+
+                                        <div class="lightbox clearfix">
+                                            <div data-src="~/media/gallery/1.jpg">
+                                                <div class="lightbox-item">
+                                                    <img src="~/media/gallery/thumbs/1.jpg" alt="" />
+                                                </div>
+                                            </div>
+
+                                            <div data-src="~/media/gallery/2.jpg">
+                                                <div class="lightbox-item">
+                                                    <img src="~/media/gallery/thumbs/2.jpg" alt="" />
+                                                </div>
+                                            </div>
+
+                                            <div data-src="~/media/gallery/3.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/3.jpg" alt="" />
+                                                </div>
+                                            </div>
+
+                                            <div data-src="~/media/gallery/4.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/4.jpg" alt="" />
+                                                </div>
+                                            </div>
+
+                                            <div data-src="~/media/gallery/5.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/5.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/6.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/6.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/7.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/8.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/8.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/9.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/9.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/10.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/11.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/12.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/13.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/14.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/15.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/15.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/16.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/16.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div data-src="~/media/gallery/17.jpg">
+                                                <div class="lightbox-item p-item">
+                                                    <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+
+                        </div>
+
+                        <div class="p-timeline">
+                            <div class="pt-line c-gray text-right">
+                                <span class="d-block">2015</span>
+                                10/07
+                            </div>
+
+                            <div class="pt-body">
+                                <h2 class="ptb-title">Trip to Orbit</h2>
+
+                                <div class="lightbox clearfix">
+                                    <div data-src="~/media/gallery/10.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/11.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/12.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/13.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/14.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/15.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/15.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/16.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/16.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/17.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="p-timeline">
+                            <div class="pt-line c-gray text-right">
+                                <span class="d-block">2015</span>
+                                12/06
+                            </div>
+
+                            <div class="pt-body">
+                                <h2 class="ptb-title">Purchased for print</h2>
+
+                                <div class="lightbox clearfix">
+
+                                    <div data-src="~/media/gallery/4.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/4.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/5.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/5.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/6.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/6.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/7.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/8.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/8.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/9.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/9.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/10.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/11.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/12.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/13.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/14.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/15.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/15.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="p-timeline">
+                            <div class="pt-line c-gray text-right">
+                                <span class="d-block">2015</span>
+                                01/06
+                            </div>
+
+                            <div class="pt-body">
+                                <h2 class="ptb-title">For Website</h2>
+
+                                <div class="lightbox clearfix">
+                                    <div data-src="~/media/gallery/1.jpg">
+                                        <div class="lightbox-item">
+                                            <img src="~/media/gallery/thumbs/1.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/2.jpg">
+                                        <div class="lightbox-item">
+                                            <img src="~/media/gallery/thumbs/2.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/3.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/3.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/4.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/4.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/5.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/5.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/6.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/6.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/7.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/8.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/8.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/9.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/9.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/10.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/11.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/12.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/13.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/14.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/15.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/15.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/16.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/16.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/17.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/4.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/4.jpg" alt="" />
+                                        </div>
+                                    </div>
+
+                                    <div data-src="~/media/gallery/5.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/5.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/6.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/6.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/7.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/7.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/8.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/8.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/9.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/9.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/10.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/11.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/12.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/13.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/14.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/15.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/15.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="p-timeline">
+                            <div class="pt-line c-gray text-right">
+                                <span class="d-block">2015</span>
+                                22/04
+                            </div>
+
+                            <div class="pt-body">
+                                <h2 class="ptb-title">To Print and Review</h2>
+
+                                <div class="lightbox clearfix">
+                                    <div data-src="~/media/gallery/13.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/13.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/10.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/10.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/11.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/11.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/12.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/12.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                    <div data-src="~/media/gallery/14.jpg">
+                                        <div class="lightbox-item p-item">
+                                            <img src="~/media/gallery/thumbs/14.jpg" alt="" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </section>
+
+    @Html.Partial("_admin_footer")
+
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+        <div class="ie-warning">
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="img/browsers/chrome.png" alt="">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="img/browsers/firefox.png" alt="">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="img/browsers/opera.png" alt="">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="img/browsers/safari.png" alt="">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="img/browsers/ie.png" alt="">
+                            <div>IE (New)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Javascript Libraries -->
+    <script src="../../admin_content/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    @*<script src="vendors/bower_components/flot/jquery.flot.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.js"></script>
+    @*<script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>*@
+    <script src="../../admin_content/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="../../admin_content/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="../../admin_content/vendors/sparklines/jquery.sparkline.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+
+    <script src="../../admin_content/vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="../../admin_content/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../../admin_content/vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+
+    <script src="../../admin_content/js/app.min.js"></script>
+</body>
+
+
+
+<!-- Mirrored from byrushan.com/projects/ma/1-5-3/jquery/light/photo-timeline.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 May 2016 18:57:08 GMT -->
+</html>
